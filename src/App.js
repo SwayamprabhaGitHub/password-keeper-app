@@ -1,22 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import PasswordList from "./components/PasswordList";
+import PasswordContextProvider from "./store/PasswordContextProvider";
+import FormVisibleContext from "./store/formvisible-context";
 import Modal from "./components/Modal";
 
 function App() {
-  const [formIsVisible, setFormIsVisible] = useState(false);
-  const formVisibleHandler = () => {
-    setFormIsVisible(true);
-  }
-  const formNotVisibleHandler = () => {
-    setFormIsVisible(false);
-  }
+  const formCnxt = useContext(FormVisibleContext);
+  
   return (
-    <div>
+    <PasswordContextProvider>
       <h2>Password Keeper</h2>
-      <button type="button" onClick={formVisibleHandler}>Add New Password</button>
-      {formIsVisible && <Modal formVisibility={formNotVisibleHandler}/>}
+      <button type="button" onClick={formCnxt.formVisible}>Add New Password</button>
+      {formCnxt.formIsVisible && <Modal formVisibility={formCnxt.formNotVisible}/>}
       <label htmlFor="search">Search: </label>
       <input type="text" id="search"/>
-    </div>
+      <PasswordList />
+    </PasswordContextProvider>
   );
 }
 
