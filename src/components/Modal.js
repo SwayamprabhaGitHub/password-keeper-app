@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 import PasswordContext from "../store/password-context";
 import FormVisibleContext from "../store/formvisible-context";
@@ -12,28 +12,20 @@ const ModalOverlay = (props) => {
     const listCnxt = useContext(PasswordContext);
     const formCnxt = useContext(FormVisibleContext);
 
-    const [title, setTitle] = useState("");
-    const [pswrd, setPswrd] = useState("");
-
-    const titleHandler = (event) => {
-        setTitle(event.target.value);
-    }
-    const pswrdHandler = (event) => {
-        setPswrd(event.target.value);
-    }
+    
     const formSubmitHandler = (event) => {
         event.preventDefault();
         const id = Math.random();
-        listCnxt.addPassword({Id:id, Title: title, Password: pswrd});
-        setTitle("");
-        setPswrd("");
+        listCnxt.addPassword({Id:id, Title: formCnxt.title, Password: formCnxt.password});
+        formCnxt.changeTitle("");
+        formCnxt.changePassword("");
         formCnxt.formNotVisible();
     }
     return <form className="modal">
         <label htmlFor="title">Title:</label>
-        <input type="text" id="title" value={title} onChange={titleHandler}/>
+        <input type="text" id="title" value={formCnxt.title} onChange={(e) => formCnxt.changeTitle(e.target.value)}/>
         <label htmlFor="password">Password:</label>
-        <input type="text" id="password" value={pswrd} onChange={pswrdHandler}/>
+        <input type="text" id="password" value={formCnxt.password} onChange={(e) => formCnxt.changePassword(e.target.value)}/>
         <div>
             <button type="button" onClick={formSubmitHandler}>Add</button>
             <button type="button" onClick={props.formVisibility}>X</button>
