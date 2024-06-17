@@ -8,7 +8,10 @@ const PasswordContextProvider = (props) => {
         setList([...list, item]);
     }
     const updatePasswordHandler = (id) => {
-
+      const newList= list.filter((item) => {
+        return item.Id !== id;
+      })
+      setList(newList);
     }
     console.log(list);
     const passwordContext = {
