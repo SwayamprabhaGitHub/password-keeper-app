@@ -18,6 +18,8 @@ const pswrdHandler = (value) => {
   };
   const formNotVisibleHandler = () => {
     setFormIsVisible(false);
+    setTitle("");
+    setPswrd("");
   };
   const formVisibility = {
     title: title,
