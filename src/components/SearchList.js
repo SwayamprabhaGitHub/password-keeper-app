@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import PasswordContext from "../store/password-context";
+import "./SearchList.css";
 
 const SearchList = () => {
   const listCnxt = useContext(PasswordContext);
@@ -25,9 +26,9 @@ const SearchList = () => {
     <section>
       <div>
         <label htmlFor="search">Search: </label>
-        <input type="text" id="search" onKeyUp={searchPasswordHandler} />
+        <input type="text" id="search" placeholder="search password" onKeyUp={searchPasswordHandler} />
       </div>
-      <ul>
+      <ul id="searchList">
         {searchPassword.map((item) => {
           return (
             <li key={item.Id}>

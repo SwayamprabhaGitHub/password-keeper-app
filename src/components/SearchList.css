@@ -1,0 +1,33 @@
+div {
+    margin: 20px;
+    font-weight: bold;
+    font-size: 30px;
+    
+}
+
+div label {
+    position: relative;
+    top: 5px;
+}
+
+div input {
+    border: 2px solid yellowgreen;
+    border-radius: 5px;
+    height: 25px;
+}
+
+#searchList {
+    list-style-type: none;
+    padding: 5px;
+
+}
+
+#searchList li {
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #fefae0;
+    color: black;
+
+}

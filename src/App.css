@@ -1,0 +1,25 @@
+h2 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 40px;
+    font-weight: bold;
+    background-color: lightyellow;
+    border-bottom: 2px solid #023047 ;
+    
+}
+
+p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button {
+    background-color: #023047;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 5px;
+    border-color: #ffb703;
+    border-width: 10px;
+}

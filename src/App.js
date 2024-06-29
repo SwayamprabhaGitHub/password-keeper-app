@@ -5,6 +5,7 @@ import FormVisibleContext from "./store/formvisible-context";
 import PasswordContext from "./store/password-context";
 import Modal from "./components/Modal";
 import SearchList from "./components/SearchList";
+import "./App.css";
 
 function App() {
   const formCnxt = useContext(FormVisibleContext);
@@ -15,7 +16,7 @@ function App() {
       <h2>Password Keeper</h2>
       <p>Total passwords: {listCnxt.totalPassword}</p>
       <button type="button" onClick={formCnxt.formVisible}>Add New Password</button>
-      {formCnxt.formIsVisible && <Modal formVisibility={formCnxt.formNotVisible}/>}
+      {formCnxt.formIsVisible && <Modal />}
       <SearchList />
       <PasswordList />
     </React.Fragment>
